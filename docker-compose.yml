@@ -57,6 +57,9 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+      - type: bind
+        source: ./mydata
+        target: /usr/share/mydata
     ports:
       - "5044:5044"
       - "5000:5000/tcp"
